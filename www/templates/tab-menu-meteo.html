@@ -1,0 +1,32 @@
+<ion-view view-title="Menu">
+    <ion-content class="row">
+        <h1 class="col s12">METEO</h1>
+        <form>
+            <div class="file-field input-field">
+                <div class="btn" ng-click="changeCity()">
+                    <span>Modifier</span>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Set The City" ng-model="meteo.city">
+                </div>
+            </div>
+        </form>
+
+        <ul class="meteo-infos col s12">
+            <li>Main : {{meteo.data.weather[0].main}}</li>
+            <li>Description : {{meteo.data.weather[0].description}}</li>
+            <li>Température : {{meteo.data.main.temp | todeg}}°C</li>
+            <li>Pression : {{meteo.data.main.pressure}}</li>
+            <li>Humidité : {{meteo.data.main.humidity}}</li>
+            <li>Température min : {{meteo.data.main.temp_min | todeg}}°C</li>
+            <li>Température max : {{meteo.data.main.temp_max | todeg}}°C</li>
+            <li>Vitesse du vent : {{meteo.data.wind.speed}}</li>
+            <li>Direction du vent : {{meteo.data.wind.deg}}</li>
+            <li>Pays : {{meteo.data.sys.country}}</li>
+            <li>Levé du soleil : {{meteo.data.sys.sunrise | tohour }}</li>
+            <li>Couché du soleil : {{meteo.data.sys.sunset | tohour}}</li>
+            <li>Lieu : {{meteo.data.name}}</li>
+        </ul>
+
+    </ion-content>
+</ion-view>

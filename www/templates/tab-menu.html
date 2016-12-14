@@ -1,0 +1,14 @@
+<ion-view view-title="Menu">
+	<ion-content>
+		<div class="grid">
+			<a ng-repeat="item in items"
+			   href="{{item.url}}"
+			   class="{{item.size}} grid-item appBlock"
+			   data-id="{{item.id}}"
+			   ng-style="{'background-color': item.color, 'background-image': 'url('+item.icon+')'}"
+			>
+				<div>{{item.name}}</div>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,91 +1,13 @@
 <ion-view view-title="Dashboard">
-    <ion-content class="padding">
-        <div class="row">
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-        </div>
-        <div class="row">
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-        </div>
-        <div class="row">
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-            <div class="col padding text-center">plop</div>
-        </div>
-        <div class="bar bar-header item-input-inset">
-            <label class="item-input-wrapper">
-                <i class="icon ion-ios7-search placeholder-icon"></i>
-                <input type="search" placeholder="Search">
-            </label>
-            <button class="button button-positive">
-                cancel
-            </button>
-        </div>
-        <div class="list">
-            <label class="item item-input">
-                <span class="input-label">Pseudo</span>
-                <input type="text">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password">
-            </label>
-        </div>
-        <div class="list">
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Pseudo</span>
-                <input type="text" placeholder="Pseudo">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Password</span>
-                <input type="text" placeholder="password">
-            </label>
-        </div>
-        <div class="list list-inset">
-            <label class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search">
-            </label>
-        </div>
-        <ion-toggle ng-model="airplaneMode" toggle-class="toggle-default">Airplane Mode : {{airplaneMode}}</ion-toggle>
-        <ion-checkbox ng-model="isChecked">Label : {{isChecked}}</ion-checkbox>
-        <ion-list>
-            <ion-item ng-bind="choice"> </ion-item>
-            <ion-radio ng-model="choice" ng-value="'value1'">Value1</ion-radio>
-            <ion-radio ng-model="choice" ng-value="'value2'">Value2</ion-radio>
-        </ion-list>
-        {{testRange = testRange || 20}}
-        <div class="range range-calm">
-            <i class="icon ion-ios7-ionic-outline"></i>
-            <input type="range" ng-model="testRange" name="SomeTestRange">
-            <i class="icon ion-ionic"></i>
-        </div>
-        <div style="background-color: rgb(205, 115, 143); height: 100px; width:100px" ng-style="{'border-radius': testRange + '%'}" class="text-center center">
-            <br><br>Coucou
-        </div>
-        <div class="list">
-
-            <label class="item item-input item-select">
-                <div class="input-label">
-                    Lightsaber
-                </div>
-                <select>
-                    <option>Blue</option>
-                    <option selected>Green</option>
-                    <option>Red</option>
-                </select>
-            </label>
-        </div>
-        <div class="tabs">
-            <a class="tab-item"> Home </a>
-            <a class="tab-item"> Favorites </a>
-            <a class="tab-item"> Settings </a>
-        </div>
+    <ion-content class="chatThread">
+        <ul class="chat-thread">
+            <li ng-repeat="line in messages track by $index">
+                {{line}}
+            </li>
+        </ul>
+        <form class="chat-window">
+            <input class="chat-window-message" name="chat-window-message" type="text" autofocus placeholder="Message..." ng-model="message" />
+            <button ng-click="addMessage(message)" class="button button-positive" style="float: right;"> > </button>
+        </form>
     </ion-content>
 </ion-view>

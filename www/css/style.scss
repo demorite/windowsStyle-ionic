@@ -1,0 +1,39 @@
+@import "meteo";
+@import "chat";
+@import "images";
+/* Empty. Add your own CSS if you like */
+.ion-content{margin-top:44px;}
+::-webkit-scrollbar{display: none;}
+
+.appBlock{padding-top: 5px; color:white; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 5px solid white; text-align: center; background-repeat: no-repeat; background-position: center center; -webkit-background-size: 50%; background-size:50%;}
+.appBlock a{color: white; text-decoration: none; font-size: 1.2em; font-weight: bold;}
+
+
+.grid-item{width: calc(100vw / 7); height: calc(100vw / 7);}
+
+/*Petit ordinateur*/
+@media screen and (max-width: 1024px){
+  .grid-item{width: calc(100vw / 6); height: calc(100vw / 6);}
+}
+
+/* Tablette */
+@media screen and (max-width: 768px){
+  .grid-item{width: calc(100vw / 5); height: calc(100vw / 5);}
+}
+
+/* Mobile L */
+@media screen and (max-width: 425px){
+  .grid-item{width: calc(100vw / 4); height: calc(100vw / 4);}
+}
+
+/* Mobile M */
+@media screen and (max-width: 375px){
+  .grid-item{width: calc(100vw / 3); height: calc(100vw / 3);}
+}
+
+/* Mobile S */
+@media screen and (max-width: 425px){
+
+}
+
+

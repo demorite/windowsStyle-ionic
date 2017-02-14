@@ -1,32 +1,81 @@
-<ion-view view-title="Menu">
-    <ion-content class="row">
-        <h1 class="col s12">METEO</h1>
-        <form>
-            <div class="file-field input-field">
-                <div class="btn" ng-click="changeCity()">
-                    <span>Modifier</span>
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Set The City" ng-model="meteo.city">
-                </div>
-            </div>
-        </form>
+<ion-view view-title="Meteo">
+	<ion-nav class="title">
+		<div class="bar bar-header bar-royal">
+			<h1 class="title">METEO</h1>
+		</div>
+	</ion-nav>
+	<ion-content class="row ion-content weatherStyle row">
+		<label class="weatherLabel item item-input item-floating-label">
+			<input type="text" placeholder="Ville" ng-model="meteo.city">
+		</label>
+		<button class="button button-block button-royal" ng-click="changeCity()">
+			Modifier
+		</button>
 
-        <ul class="meteo-infos col s12">
-            <li>Main : {{meteo.data.weather[0].main}}</li>
-            <li>Description : {{meteo.data.weather[0].description}}</li>
-            <li>Température : {{meteo.data.main.temp | todeg}}°C</li>
-            <li>Pression : {{meteo.data.main.pressure}}</li>
-            <li>Humidité : {{meteo.data.main.humidity}}</li>
-            <li>Température min : {{meteo.data.main.temp_min | todeg}}°C</li>
-            <li>Température max : {{meteo.data.main.temp_max | todeg}}°C</li>
-            <li>Vitesse du vent : {{meteo.data.wind.speed}}</li>
-            <li>Direction du vent : {{meteo.data.wind.deg}}</li>
-            <li>Pays : {{meteo.data.sys.country}}</li>
-            <li>Levé du soleil : {{meteo.data.sys.sunrise | tohour }}</li>
-            <li>Couché du soleil : {{meteo.data.sys.sunset | tohour}}</li>
-            <li>Lieu : {{meteo.data.name}}</li>
-        </ul>
+		<div class="cssWeather">
+			<css-sunny ng-show="(meteo.data.weather[0].main == 'Clouds' || meteo.data.weather[0].main == 'Clear') && (meteo.data.main.temp | todeg) >= 5"></css-sunny>
+			<css-cloudy ng-show="(meteo.data.weather[0].main == 'Clouds' || meteo.data.weather[0].main == 'Clouds' || meteo.data.weather[0].main == 'Clear') && (meteo.data.main.temp | todeg) < 5"></css-cloudy>
+			<css-snowy ng-show="meteo.data.weather[0].main == 'Snow'"></css-snowy>
+			<css-stormy ng-show="meteo.data.weather[0].main == 'Rain' || meteo.data.weather[0].main == 'Drizzle' || meteo.data.weather[0].main == 'Mist'"></css-stormy>
+			<css-supermoon ng-show="meteo.data.weather[0].main == 'SuperMoon'"></css-supermoon>
+		</div>
+		<p>
+			{{meteo.data.weather[0].description}}
+		</p>
+		<div class="thermometre">
+			<div></div>
+			<div ng-style="{
+				'width': (50+(meteo.data.main.temp | todeg) < 10 ? 10 : 50+(meteo.data.main.temp | todeg) > 90 ? 90 : 50+(meteo.data.main.temp | todeg))+'%',
+				'background-color': '#'+((meteo.data.main.temp | todeg) < 10 ? '52528F' : (meteo.data.main.temp | todeg) < 25 ? '52A352' : 'CC6666')
+			}"><p>{{meteo.data.main.temp | todeg}}°C</p></div>
+		</div>
+		<div class="jaugePressure">
+			{{meteo.data.main.pressure}}hpa
+		</div>
+		<div class="humidityWeather">
+			<i class="fa fa-tint" aria-hidden="true" ></i> {{meteo.data.main.humidity}}%
+		</div>
+		<div class="tempMinMaxWeather">
+			<i class="fa fa-thermometer-0" aria-hidden="true" ></i> <span>{{meteo.data.main.temp_min | todeg}}°C</span> -
+			<span>{{meteo.data.main.temp_max | todeg}}°C</span> <i class="fa fa-thermometer-4" aria-hidden="true" ></i>
+		</div>
+		<div class="windSpeedWeather">
+			<i class="fa fa-flag" aria-hidden="true" ></i> {{meteo.data.wind.speed}} km/h
+		</div>
+		<div class="soleilLeveCouche">
+			<i class="fa fa-sun-o" aria-hidden="true" ></i> {{meteo.data.sys.sunrise | tohour }} -
+			{{meteo.data.sys.sunset | tohour}} <i class="fa fa-moon-o" aria-hidden="true" ></i>
+		</div>
+		<div class="lieuWeather">
+			<i class="fa fa-map-marker" aria-hidden="true" ></i> {{meteo.data.name}}, {{meteo.data.sys.country}}
+		</div>
+		<ul class="meteo-infos col s12">
+			<li style="display: none">Main : {{meteo.data.weather[0].main}}</li>
+			<li style="display: none">Description : {{meteo.data.weather[0].description}}</li>
+			<li style="display: none">Température : {{meteo.data.main.temp | todeg}}°C</li>
+			<li style="display: none">Pression : {{meteo.data.main.pressure}}</li>
+			<li style="display: none">Humidité : {{meteo.data.main.humidity}}</li>
+			<li style="display: none">Température min : {{meteo.data.main.temp_min | todeg}}°C</li>
+			<li style="display: none">Température max : {{meteo.data.main.temp_max | todeg}}°C</li>
+			<li style="display: none">Vitesse du vent : {{meteo.data.wind.speed}}</li>
+			<li style="display: none">Direction du vent : {{meteo.data.wind.deg}}</li>
+			<li style="display: none">Pays : {{meteo.data.sys.country}}</li>
+			<li style="display: none">Levé du soleil : {{meteo.data.sys.sunrise | tohour }}</li>
+			<li style="display: none">Couché du soleil : {{meteo.data.sys.sunset | tohour}}</li>
+			<li style="display: none">Lieu : {{meteo.data.name}}</li>
+		</ul>
 
-    </ion-content>
+	</ion-content>
 </ion-view>
+
+0 => 50%
+-50 => 0%
+50 => 100%;
+
+x-50=100
+
+
+
+
+
+

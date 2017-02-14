@@ -1,6 +1,10 @@
 <ion-view view-title="Menu">
-    <ion-content>
-        <h1>Images</h1>
-        
+    <ion-nav class="title">
+        <div class="bar bar-header bar-energized">
+            <h1 class="title">Images</h1>
+        </div>
+    </ion-nav>
+    <ion-content class="imagesGalery">
+                <img ng-repeat="url in imagesGalery" src="{{url}}">
     </ion-content>
 </ion-view>

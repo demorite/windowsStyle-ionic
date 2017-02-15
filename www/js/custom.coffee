@@ -30,3 +30,4 @@ orientation: 'vertical'
 $('#flat-slider-vertical-1, #flat-slider-vertical-2, #flat-slider-vertical-3').slider('pips',
 	first: 'pip'
 	last : 'pip').slider 'float'
+

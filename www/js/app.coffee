@@ -67,6 +67,7 @@ angular.module('starter', [
 		views:
 			'tab-settings':
 				templateUrl: 'templates/tab-settings.html'
+				controller: 'settingsCtrl'
 	$urlRouterProvider.otherwise '/tab/menu'
 
 	return

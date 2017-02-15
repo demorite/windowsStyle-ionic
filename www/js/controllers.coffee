@@ -90,27 +90,84 @@ imagesCtrl = ($scope, $http) ->
 	]
 	return
 
-chatCtrl = ($scope, $http)->
+chatCtrl = ($scope, $http, settings)->
 	container = $('.chat-thread')
-	$scope.message = ""
+	$scope.message = ''
+	$scope.user = settings.user
 	$scope.messages = []
-	messages = ->
-		$http.get("php/_db.class.php?function=getMessages").then((result)->
-			for data in result.data
-				$scope.messages.push(data.message)
+	allmessages = ->
+		$http.get("http://localhost:8600/messages/").then((result)->
+			if result.data[result.data.length - 1].date != $scope.messages[9]?.date
+				$scope.messages = []
+				for data in result.data
+					$scope.messages.push({
+						message : data.message,
+						user : data.user
+						date : data.date
+					})
 #				container.append('<li>' + data.message + '</li>')
 		)
-	messages()
+		return
+	setInterval(allmessages, 500);
 
 	$scope.addMessage = (message)->
-		$http.get("php/_db.class.php?function=addMessage&message=" + message).then(->
-			$scope.messages.push(message)
-		)
+		if message? and message != ''
+			###
+    $http.get("php/_db.class.php?function=addMessage&message=" + message + '&user=' + $scope.user).then(->
+				$scope.messages.push({
+					message: message,
+					user: $scope.user
+				})
 
+				$scope.message = "";
+				$('.chat-window-message').val('')
+				$('.chat-window-message').text('')
+				$('.chat-window-message').html('')
+				return
+			)
+###
+			data = {
+				user: $scope.user
+				message: message
+			}
+
+
+			$http.post(
+				"http://localhost:8600/messages/", data,
+				{
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+					}
+				}
+			).then((result)->
+				console.log result.data
+				$scope.messages.push({
+					message: message,
+					user: $scope.user,
+					date: new Date()
+				})
+
+				$scope.message = "";
+				$('.chat-window-message').val('')
+				$('.chat-window-message').text('')
+				$('.chat-window-message').html('')
+				return
+			)
+		return
+
+settingsCtrl = ($scope,$window, settings)->
+	$scope.user = settings.user
+	$scope.changeUser = (user)->
+		settings.user = user
+		$window.localStorage.setItem('user', settings.user)
+		return
+
+	return
 angular.module('starter.controllers', [])
 	.controller 'menuCtrl', menuCtrl
 	.controller 'meteoCtrl', meteoCtrl
 	.controller 'chatCtrl', chatCtrl
 	.controller 'audioCtrl', ($scope) -> return
 	.controller 'imagesCtrl', imagesCtrl
+	.controller 'settingsCtrl', settingsCtrl
 	.controller 'marvelCtrl', ($scope) -> return

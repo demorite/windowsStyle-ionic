@@ -14,7 +14,7 @@
 				echo json_encode(getMessages());
 				break;
 			case "addMessage":
-				addMessage(htmlspecialchars($_GET['message'], ENT_QUOTES));
+				addMessage(htmlspecialchars($_GET['message'], ENT_QUOTES), $_GET['user']);
 				break;
 		}
 	}
@@ -32,6 +32,6 @@
 		return connect()->query("SELECT * FROM messages")->fetchAll();
 	}
 
-	function addMessage($message) {
-		return connect()->prepare("INSERT INTO messages (message) VALUES (?)")->execute([$message]);
+	function addMessage($message, $user) {
+		return connect()->prepare("INSERT INTO messages (message, user) VALUES (?, ?)")->execute([$message, $user]);
 	}

@@ -1,15 +1,16 @@
 <ion-view view-title="Dashboard">
-    <ion-content class="chatThread">
-        <ul class="chat-thread">
-            <li ng-repeat="line in messages track by $index" data-user="{{line.user == user}}">
-                {{line.message}}
-            </li>
-        </ul>
-
-        <form class="chat-window">
-            <input class="chat-window-message" name="chat-window-message" type="text" placeholder="Message..." ng-model="message" />
-
-            <button type="submit" ng-click="addMessage(message);" class="button button-positive" style="float: right;"><i class="fa fa-send" aria-hidden="true" style="display: inline-block;"></i></button>
-        </form>
-    </ion-content>
+	<ion-content class="chatThread">
+		<ul class="chat-thread">
+			<li ng-repeat="line in messages track by $index" data-user="{{line.user == user}}">
+				<span class="userLine">{{line.user}} :</span><br>
+				{{line.message}}
+			</li>
+		</ul>
+		<form >
+			<input class="chat-window-message" name="chat-window-message" type="text" placeholder="Message..." ng-model="message">
+			<button type="submit" ng-click="addMessage(message);" class="button button-positive button-small" style="float: right;">
+				<i class="fa fa-send" aria-hidden="true" style="display: inline-block;"></i>
+			</button>
+		</form>
+	</ion-content>
 </ion-view>

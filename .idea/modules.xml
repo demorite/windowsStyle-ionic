@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ionic.iml" filepath="$PROJECT_DIR$/.idea/ionic.iml" />
       <module fileurl="file://$PROJECT_DIR$/../test/.idea/test.iml" filepath="$PROJECT_DIR$/../test/.idea/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../windowsStyleApi/.idea/untitled.iml" filepath="$PROJECT_DIR$/../windowsStyleApi/.idea/untitled.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,12 @@
 <ion-view view-title="Account">
     <ion-content>
         <h1>Settings</h1>
-        <input type="text" ng-model="user" ng-keyup="changeUser(user)">
+        <div class="list">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" ng-model="user" ng-keyup="changeUser(user)" ng-required="true" placeholder="Pseudo...">
+                </label>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

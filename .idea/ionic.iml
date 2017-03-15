@@ -18,5 +18,6 @@
     <orderEntry type="library" name="masonry.pkgd" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
     <orderEntry type="module" module-name="test" />
+    <orderEntry type="module" module-name="untitled" />
   </component>
 </module>

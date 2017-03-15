@@ -1,6 +1,4 @@
 menuCtrl = ($scope, $interval) ->
-
-# Activation de JQuery Masonry
 	angular.element(document).ready ->
 		$interval (->
 			$('.grid').masonry itemSelector: '.grid-item'
@@ -48,8 +46,8 @@ menuCtrl = ($scope, $interval) ->
 	]
 	return
 
-meteoCtrl = ($scope, $http, meteoDir) ->
-	$scope.meteo = meteoDir
+meteoCtrl = ($scope, $http, $meteodir) ->
+	$scope.meteo = $meteodir
 	$scope.url = 'http://api.openweathermap.org/data/2.5/weather?q=' + $scope.meteo.city + '&appid=cc5b7a00b36bc4597683407d5bcbd389'
 
 	$scope.mainStates =
@@ -88,6 +86,19 @@ imagesCtrl = ($scope, $http) ->
 		'img/gallery/5.jpg'
 		'img/gallery/6.jpg'
 	]
+
+	$scope.showImage = (url)->
+		full = $('.fullscreenImage')
+		elem = $('.otherImages')
+		full.css('background-image': 'url('+url+')')
+		elem.fadeOut()
+		full.fadeIn()
+
+	$scope.hideImage = ()->
+		full = $('.fullscreenImage')
+		elem = $('.otherImages')
+		elem.fadeIn()
+		full.fadeOut()
 	return
 
 chatCtrl = ($scope, $http, settings)->
@@ -96,7 +107,7 @@ chatCtrl = ($scope, $http, settings)->
 	$scope.user = settings.user
 	$scope.messages = []
 	allmessages = ->
-		$http.get("http://localhost:8600/messages/").then((result)->
+		$http.get("http://localhost/www/windowsStyleApi/public/messages/").then((result)->
 			if result.data[result.data.length - 1].date != $scope.messages[9]?.date
 				$scope.messages = []
 				for data in result.data
@@ -105,27 +116,14 @@ chatCtrl = ($scope, $http, settings)->
 						user : data.user
 						date : data.date
 					})
-#				container.append('<li>' + data.message + '</li>')
+
 		)
+
 		return
 	setInterval(allmessages, 500);
 
 	$scope.addMessage = (message)->
 		if message? and message != ''
-			###
-    $http.get("php/_db.class.php?function=addMessage&message=" + message + '&user=' + $scope.user).then(->
-				$scope.messages.push({
-					message: message,
-					user: $scope.user
-				})
-
-				$scope.message = "";
-				$('.chat-window-message').val('')
-				$('.chat-window-message').text('')
-				$('.chat-window-message').html('')
-				return
-			)
-###
 			data = {
 				user: $scope.user
 				message: message
@@ -133,20 +131,21 @@ chatCtrl = ($scope, $http, settings)->
 
 
 			$http.post(
-				"http://localhost:8600/messages/", data,
+				"http://localhost/www/windowsStyleApi/public/messages/", data,
 				{
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 					}
 				}
 			).then((result)->
-				console.log result.data
 				$scope.messages.push({
 					message: message,
 					user: $scope.user,
 					date: new Date()
 				})
 
+#				SCROLL
+#				$('.chat-thread').animate({'scrollTop' : 4000}, 2000)
 				$scope.message = "";
 				$('.chat-window-message').val('')
 				$('.chat-window-message').text('')
@@ -163,6 +162,7 @@ settingsCtrl = ($scope,$window, settings)->
 		return
 
 	return
+
 angular.module('starter.controllers', [])
 	.controller 'menuCtrl', menuCtrl
 	.controller 'meteoCtrl', meteoCtrl

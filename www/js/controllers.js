@@ -44,8 +44,8 @@ menuCtrl = function($scope, $interval) {
   ];
 };
 
-meteoCtrl = function($scope, $http, meteoDir) {
-  $scope.meteo = meteoDir;
+meteoCtrl = function($scope, $http, $meteodir) {
+  $scope.meteo = $meteodir;
   $scope.url = 'http://api.openweathermap.org/data/2.5/weather?q=' + $scope.meteo.city + '&appid=cc5b7a00b36bc4597683407d5bcbd389';
   $scope.mainStates = {
     'Cloud': "img/mainStates/Cloud.png",
@@ -71,6 +71,23 @@ meteoCtrl = function($scope, $http, meteoDir) {
 
 imagesCtrl = function($scope, $http) {
   $scope.imagesGalery = ['img/gallery/1.jpg', 'img/gallery/2.png', 'img/gallery/3.jpg', 'img/gallery/4.jpg', 'img/gallery/5.jpg', 'img/gallery/6.jpg'];
+  $scope.showImage = function(url) {
+    var elem, full;
+    full = $('.fullscreenImage');
+    elem = $('.otherImages');
+    full.css({
+      'background-image': 'url(' + url + ')'
+    });
+    elem.fadeOut();
+    return full.fadeIn();
+  };
+  $scope.hideImage = function() {
+    var elem, full;
+    full = $('.fullscreenImage');
+    elem = $('.otherImages');
+    elem.fadeIn();
+    return full.fadeOut();
+  };
 };
 
 chatCtrl = function($scope, $http, settings) {
@@ -80,7 +97,7 @@ chatCtrl = function($scope, $http, settings) {
   $scope.user = settings.user;
   $scope.messages = [];
   allmessages = function() {
-    $http.get("http://localhost:8600/messages/").then(function(result) {
+    $http.get("http://localhost/www/windowsStyleApi/public/messages/").then(function(result) {
       var data, i, len, ref, ref1, results;
       if (result.data[result.data.length - 1].date !== ((ref = $scope.messages[9]) != null ? ref.date : void 0)) {
         $scope.messages = [];
@@ -102,31 +119,15 @@ chatCtrl = function($scope, $http, settings) {
   return $scope.addMessage = function(message) {
     var data;
     if ((message != null) && message !== '') {
-
-      /*
-       $http.get("php/_db.class.php?function=addMessage&message=" + message + '&user=' + $scope.user).then(->
-      				$scope.messages.push({
-      					message: message,
-      					user: $scope.user
-      				})
-      
-      				$scope.message = "";
-      				$('.chat-window-message').val('')
-      				$('.chat-window-message').text('')
-      				$('.chat-window-message').html('')
-      				return
-      			)
-       */
       data = {
         user: $scope.user,
         message: message
       };
-      $http.post("http://localhost:8600/messages/", data, {
+      $http.post("http://localhost/www/windowsStyleApi/public/messages/", data, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }).then(function(result) {
-        console.log(result.data);
         $scope.messages.push({
           message: message,
           user: $scope.user,

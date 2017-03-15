@@ -2,29 +2,61 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/controllers.js" />
-        <item url="file://$PROJECT_DIR$/www/js/app.js" />
-        <item url="file://$PROJECT_DIR$/www/js/controllers.js" />
-        <item url="file://$PROJECT_DIR$/www/js/filters.js" />
-        <item url="file://$PROJECT_DIR$/www/js/services.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/app.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/directives.js" />
         <item url="file://$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" />
         <item url="file://$PROJECT_DIR$/platforms/android/assets/www/js/custom.js" />
         <item url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/custom.js" />
         <item url="file://$PROJECT_DIR$/www/js/custom.js" />
         <item url="file://$PROJECT_DIR$/www/js/directives.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/www/js/controllers.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/www/js/services.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/www/js/filters.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/www/js/custom.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/www/js/app.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/www/js/directives.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/controllers.js" />
+        <item url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/services.js" />
+        <item url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/controllers.js" />
+        <item url="file://$PROJECT_DIR$/platforms/android/assets/www/js/services.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/services.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/filters.js" />
+        <item url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/app.js" />
+        <item url="file://$PROJECT_DIR$/www/js/app.js" />
+        <item url="file://$PROJECT_DIR$/www/js/controllers.js" />
+        <item url="file://$PROJECT_DIR$/www/js/filters.js" />
+        <item url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/custom.js" />
+        <item url="file://$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
+        <item url="file://$PROJECT_DIR$/www/js/services.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/controllers.js" />
-      <root url="file://$PROJECT_DIR$/www/js/app.js" />
-      <root url="file://$PROJECT_DIR$/www/js/controllers.js" />
-      <root url="file://$PROJECT_DIR$/www/js/filters.js" />
-      <root url="file://$PROJECT_DIR$/www/js/services.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/app.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/directives.js" />
       <root url="file://$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" />
       <root url="file://$PROJECT_DIR$/platforms/android/assets/www/js/custom.js" />
       <root url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/custom.js" />
       <root url="file://$PROJECT_DIR$/www/js/custom.js" />
       <root url="file://$PROJECT_DIR$/www/js/directives.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/www/js/controllers.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/www/js/services.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/www/js/filters.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/www/js/custom.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/www/js/app.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/www/js/directives.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/controllers.js" />
+      <root url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/services.js" />
+      <root url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/controllers.js" />
+      <root url="file://$PROJECT_DIR$/platforms/android/assets/www/js/services.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/services.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/filters.js" />
+      <root url="file://$PROJECT_DIR$/platforms/android/build/intermediates/assets/debug/www/js/app.js" />
+      <root url="file://$PROJECT_DIR$/www/js/app.js" />
+      <root url="file://$PROJECT_DIR$/www/js/controllers.js" />
+      <root url="file://$PROJECT_DIR$/www/js/filters.js" />
+      <root url="file://$PROJECT_DIR$/platforms/ios/build/emulator/WindowsStyle.app/www/js/custom.js" />
+      <root url="file://$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
+      <root url="file://$PROJECT_DIR$/www/js/services.js" />
     </CLASSES>
     <SOURCES />
   </library>

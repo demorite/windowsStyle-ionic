@@ -43,12 +43,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'meteoCtrl'
       }
     }
-  }).state('tab.marvel', {
-    url: '/menu/marvel',
+  }).state('tab.movie', {
+    url: '/menu/movie',
     views: {
       'tab-menu': {
-        templateUrl: 'templates/tab-menu-marvel.html',
-        controller: 'marvelCtrl'
+        templateUrl: 'templates/tab-menu-movie.html',
+        controller: 'movieCtrl'
       }
     }
   }).state('tab.images', {

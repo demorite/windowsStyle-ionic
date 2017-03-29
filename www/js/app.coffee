@@ -44,12 +44,12 @@ angular.module('starter', [
 				'tab-menu':
 					templateUrl: 'templates/tab-menu-meteo.html'
 					controller: 'meteoCtrl')
-		.state('tab.marvel',
-			url: '/menu/marvel'
+		.state('tab.movie',
+			url: '/menu/movie'
 			views:
 				'tab-menu':
-					templateUrl: 'templates/tab-menu-marvel.html'
-					controller: 'marvelCtrl')
+					templateUrl: 'templates/tab-menu-movie.html'
+					controller: 'movieCtrl')
 		.state('tab.images',
 			url: '/menu/images'
 			views:

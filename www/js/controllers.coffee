@@ -24,9 +24,9 @@ menuCtrl = ($scope, $interval) ->
 		}
 		{
 			id   : 3
-			name : 'Marvel'
-			url  : '#/tab/menu/marvel'
-			icon : 'img/icons/marvel.png'
+			name : 'Movie'
+			url  : '#/tab/menu/movie'
+			icon : 'img/icons/movie.png'
 			color: '#E07560'
 		}
 		{
@@ -89,15 +89,11 @@ imagesCtrl = ($scope, $http) ->
 
 	$scope.showImage = (url)->
 		full = $('.fullscreenImage')
-		elem = $('.otherImages')
 		full.css('background-image': 'url('+url+')')
-		elem.fadeOut()
 		full.fadeIn()
 
 	$scope.hideImage = ()->
 		full = $('.fullscreenImage')
-		elem = $('.otherImages')
-		elem.fadeIn()
 		full.fadeOut()
 	return
 
@@ -163,6 +159,20 @@ settingsCtrl = ($scope,$window, settings)->
 
 	return
 
+movieCtrl =  ($scope,$window, settings, $http) ->
+    baseurl = "https://api.themoviedb.org/3/"
+    apikey = "api_key=2605db3bb9a62669d5158c263210dea4"
+
+    $scope.getMovies = (type = 'top_rated') ->
+        console.log 'me'
+        $http.get baseurl+'movie/'+type+'/?'+apikey, (result) ->
+            console.log result
+
+        return
+
+    $scope.getMovie = () ->
+        return
+
 angular.module('starter.controllers', [])
 	.controller 'menuCtrl', menuCtrl
 	.controller 'meteoCtrl', meteoCtrl
@@ -170,4 +180,4 @@ angular.module('starter.controllers', [])
 	.controller 'audioCtrl', ($scope) -> return
 	.controller 'imagesCtrl', imagesCtrl
 	.controller 'settingsCtrl', settingsCtrl
-	.controller 'marvelCtrl', ($scope) -> return
+	.controller 'movieCtrl', movieCtrl
